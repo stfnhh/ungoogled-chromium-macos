@@ -26,7 +26,7 @@ on:
 jobs:
   build_job_01:
     name: Start Building Ungoogled-Chromium for macOS
-    runs-on: macos-latest
+    runs-on: macos-11.0
     outputs:
       status: ${{ steps.build.outputs.status }}
 
@@ -86,7 +86,7 @@ jobs:
   build_job_02:
     continue-on-error: true
     name: Resuming Building Ungoogled-Chromium for macOS
-    runs-on: macos-latest
+    runs-on: macos-11.0
     needs: build_job_01
     if: ${{needs.build_job_01.outputs.status == 'running'}}
     outputs:
@@ -152,7 +152,7 @@ jobs:
   build_job_03:
     continue-on-error: true
     name: Further Resuming Building Ungoogled-Chromium for macOS
-    runs-on: macos-latest
+    runs-on: macos-11.0
     needs: build_job_02
     if: ${{needs.build_job_02.outputs.status == 'running'}}
     outputs:
